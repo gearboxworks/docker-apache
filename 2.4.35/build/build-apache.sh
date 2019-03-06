@@ -9,3 +9,8 @@ then
 	mkdir -p /run/apache2
 fi
 
+if [ -d /build/rootfs ]
+then
+	rsync -HvaxP /build/rootfs/ /
+fi
+
