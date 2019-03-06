@@ -1,0 +1,21 @@
+# 1. First reference the gearbox-base image.
+FROM gearboxworks/gearbox-base:3.8
+
+# 2. Now copy the local files specific to this image.
+COPY build /build
+COPY container.json /build/container.json
+
+# 3. Set up env variables.
+ARG GEARBOX_CONTAINER_NAME="docker-apache"
+ARG GEARBOX_CONTAINER_VERSION="2.4.38"
+ENV GEARBOX_CONTAINER_NAME $GEARBOX_CONTAINER_NAME
+ENV GEARBOX_CONTAINER_VERSION $GEARBOX_CONTAINER_VERSION
+
+# 4. Run the build-apache.sh script to set everything up.
+RUN /bin/sh -x /build/build-apache.sh
+
+# 5. Expose ports.
+EXPOSE 80 443 9970
+
+# 6. Set default command to exec.
+CMD ["/usr/sbin/httpd", "-DFOREGROUND"]

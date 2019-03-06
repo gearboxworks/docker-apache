@@ -1,0 +1,15 @@
+{
+	"organization": "gearboxworks",
+	"name": "apache",
+	"version": "2.4.35",
+	"majorversion": "2.4",
+	"latest": "1",
+	"class": "webserver",
+	"network": "--network gearboxnet",
+	"ports": "-p 180:80 -p 1443:443",
+	"volumes": "",
+	"restart": "--restart no",
+	"args": "",
+	"env": "APACHE_VERSION"
+}
+
