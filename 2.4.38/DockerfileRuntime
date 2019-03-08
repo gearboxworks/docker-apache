@@ -10,11 +10,14 @@ MAINTAINER Gearbox Team <team@gearbox.works>
 ENV GEARBOX_CONTAINER_NAME "docker-apache"
 ENV GEARBOX_CONTAINER_VERSION "2.4.38"
 
-# 4. Run the build-apache.sh script to set everything up.
+# 4. Run the build-base.sh script to set everything up.
+RUN /bin/sh /build/build-base.sh
+
+# 5. Run the build-apache.sh script to set everything up.
 RUN /bin/sh /build/build-apache.sh
 
-# 5. Expose ports.
+# 6. Expose ports.
 EXPOSE 80 443 9970
 
-# 6. Set default command to exec.
+# 7. Set default command to exec.
 CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
