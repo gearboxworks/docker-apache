@@ -1,5 +1,5 @@
 # 1. First reference the gearbox-base image.
-FROM gearboxworks/gearbox-base:3.8
+FROM gearboxworks/gearbox-base:alpine-3.8
 
 # 2. Now copy the local files specific to this image.
 COPY build /build
