@@ -1,8 +1,9 @@
 {
+	"state": "production",
 	"organization": "gearboxworks",
 	"name": "apache",
-	"version": "2.4.38",
-	"majorversion": "2.4",
+	"version": "2.4.35",
+	"majorversion": "",
 	"latest": "1",
 	"class": "webserver",
 	"network": "--network gearboxnet",
