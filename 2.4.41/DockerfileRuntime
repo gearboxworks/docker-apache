@@ -21,4 +21,4 @@ RUN /bin/sh /build/build-apache.sh
 EXPOSE 22 80 443 9970
 
 # 7. Set default command to exec.
-# CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
+
