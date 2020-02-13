@@ -553,3 +553,20 @@ else
 endif
 endif
 
+
+################################################################################
+ports:
+	@make check-config BUILD_TYPE=$(BUILD_TYPE) BUILD_TARGET="$@"
+	@echo "# Gearbox[$(CONTAINER_NAME)]: Exposed container ports."
+
+ifneq ($(SKIP),yes)
+ifeq ($(shell docker container ls -q -a -f name="^$(CONTAINER_NAME)"),)
+	@echo "# Gearbox[$(CONTAINER_NAME)]: Container doesn't exist. Please create one."
+else ifeq ($(shell docker container ls -q -f name="^$(CONTAINER_NAME)"),)
+	@echo "# Gearbox[$(CONTAINER_NAME)]: Container exists, but shutdown. Please start."
+else
+	@docker port $(CONTAINER_NAME)
+endif
+endif
+
+
