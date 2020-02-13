@@ -1,14 +1,16 @@
-![Caddy 1.0.x](https://img.shields.io/badge/Caddy-1.0.x-green.svg)
+![Apache 2.4.x](https://img.shields.io/badge/Apache-2.4.x-green.svg)
 
 ![Gearbox](https://github.com/gearboxworks/gearbox.github.io/raw/master/Gearbox-100x.png)
 
-# Caddy Docker Container for Gearbox
-This is the repository for the [Caddy](https://caddy.local/) Docker container implemented for [Gearbox](https://github.com/gearboxworks/gearbox).
+
+# Apache2 Docker Container for Gearbox
+This is the repository for the [Apache2](http://apache.org/) Docker container implemented for [Gearbox](https://github.com/gearboxworks/gearbox).
 It currently provides versions 2.4.x
+
 
 ## Supported tags and respective Dockerfiles
 
-`1.0.0`, `1.0`, `latest` _([1.0.0/Dockerfile](https://github.com/gearboxworks/docker-caddy/blob/master/1.0.0/Dockerfile))_
+`2.4.33`, `2.4`, `latest` _([2.4.33/Dockerfile](https://github.com/gearboxworks/apache-docker/blob/master/2.4.33/Dockerfile))_
 
 
 ## Using this container.
@@ -19,35 +21,35 @@ Or you can use the GitHub method to build and run the container.
 ## Using it from Docker Hub
 
 ### Links
-(Docker Hub repo)[https://hub.docker.com/r/gearboxworks/caddy/]
+(Docker Hub repo)[https://hub.docker.com/r/gearbox/apache/]
 
-(Docker Cloud repo)[https://cloud.docker.com/swarm/gearboxworks/repository/docker/gearbox/caddy/]
+(Docker Cloud repo)[https://cloud.docker.com/swarm/gearbox/repository/docker/gearbox/apache/]
 
 
 ### Setup from Docker Hub
-A simple `docker pull gearboxworks/caddy` will pull down the latest version.
+A simple `docker pull gearbox/apache` will pull down the latest version.
 
 
 ### Runtime from Docker Hub
 start - Spin up a Docker container with the correct runtime configs.
 
-`docker run -d --name caddy-1.0.0 --restart unless-stopped --network gearboxnet -p 8080:80 -v $PROJECT_ROOT:/project gearboxworks/caddy:1.0.0`
+`docker run -d --name apache-2.4.33 --restart unless-stopped --network gearboxnet -p 8080:80 -v $PROJECT_ROOT:/project gearbox/apache:2.4.33`
 
 stop - Stop a Docker container.
 
-`docker stop caddy-1.0.0`
+`docker stop apache-2.4.33`
 
 run - Run a Docker container in the foreground, (all STDOUT and STDERR will go to console). The Container be removed on termination.
 
-`docker run --rm --name caddy-1.0.0 --network gearboxnet -p 8080:80 -v $PROJECT_ROOT:/project gearboxworks/caddy:1.0.0`
+`docker run --rm --name apache-2.4.33 --network gearboxnet -p 8080:80 -v $PROJECT_ROOT:/project gearbox/apache:2.4.33`
 
 shell - Run a shell, (/bin/bash), within a Docker container.
 
-`docker run --rm --name caddy-1.0.0 -i -t --network gearboxnet -p 8081:80 -v $PROJECT_ROOT:/project gearboxworks/caddy:1.0.0 /bin/bash`
+`docker run --rm --name apache-2.4.33 -i -t --network gearboxnet -p 8081:80 -v $PROJECT_ROOT:/project gearbox/apache:2.4.33 /bin/bash`
 
 rm - Remove the Docker container.
 
-`docker container rm caddy-1.0.0`
+`docker container rm apache-2.4.33`
 
 
 ## Using it from GitHub repo
@@ -55,7 +57,7 @@ rm - Remove the Docker container.
 ### Setup from GitHub repo
 Simply clone this repository to your local machine
 
-`git clone https://github.com/gearboxworks/docker-caddy.git`
+`git clone https://github.com/gearboxworks/apache-docker.git`
 
 
 ### Building from GitHub repo
