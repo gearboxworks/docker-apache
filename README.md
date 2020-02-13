@@ -10,7 +10,8 @@ It currently provides versions 2.4.x
 
 ## Supported tags and respective Dockerfiles
 
-`2.4.33`, `2.4`, `latest` _([2.4.33/Dockerfile](https://github.com/gearboxworks/apache-docker/blob/master/2.4.33/Dockerfile))_
+`2.4.41`, `2.4`, `latest` _([2.4.41/Dockerfile](https://github.com/gearboxworks/apache-docker/blob/master/2.4.41/Dockerfile))_
+`2.4.35`, `2.4` _([2.4.35/Dockerfile](https://github.com/gearboxworks/apache-docker/blob/master/2.4.35/Dockerfile))_
 
 
 ## Using this container.
