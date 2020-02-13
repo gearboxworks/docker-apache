@@ -182,7 +182,7 @@ ifeq ($(STATE),not_supported)
 	@exit 1
 endif
 ifeq ($(TARGET_VERSION),)
-	@echo "# Gearbox[$(IMAGE_NAME):$(VERSION)]: ERROR - Specify a TARGET_VERSION."
+	@echo "# Gearbox: ERROR - Specify a TARGET_VERSION."
 	@echo ""
 	@echo "Examples:"
 	@echo "make $(BUILD_TARGET)-all"
