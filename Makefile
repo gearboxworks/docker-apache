@@ -182,7 +182,7 @@ ifeq ($(STATE),not_supported)
 	@exit 1
 endif
 ifeq ($(TARGET_VERSION),)
-	@echo "# Gearbox[$(IMAGE_NAME):$(VERSION)]: ERROR - Specify a TARGET_VERSION."
+	@echo "# Gearbox: ERROR - Specify a TARGET_VERSION."
 	@echo ""
 	@echo "Examples:"
 	@echo "make $(BUILD_TARGET)-all"
@@ -420,6 +420,26 @@ ifneq ($(SKIP),yes)
 	-@make create
 	-@make start
 	-@make testssh
+endif
+
+
+################################################################################
+shell:
+	@make shell-real BUILD_TYPE="final" BUILD_TARGET="$@"
+
+shell-%:
+	@make shell-real BUILD_TYPE="$*"
+
+shell-real:
+	@make check-config BUILD_TYPE=$(BUILD_TYPE)
+	@echo "# Gearbox[$(IMAGE_NAME):$(VERSION)]: Running a quick shell for image."
+
+ifneq ($(SKIP),yes)
+	-@make create
+	-@make start
+	-@make ssh
+	-@make stop
+	-@make rm
 endif
 
 

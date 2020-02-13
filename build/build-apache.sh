@@ -6,8 +6,11 @@ test -f /build/include-me.sh && . /build/include-me.sh
 c_ok "Started."
 
 c_ok "Installing packages."
-APKS="$(cat /build/build-apache.apks)"
-apk update && apk add --no-cache ${APKS}; checkExit
+if [ -f /build/build-apache.apks ]
+then
+	APKS="$(cat /build/build-apache.apks)"
+	apk update && apk add --no-cache ${APKS}; checkExit
+fi
 
 if [ ! -d /run/apache2 ]
 then
