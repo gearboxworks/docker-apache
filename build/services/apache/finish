@@ -1,0 +1,9 @@
+#!/bin/bash -l
+# WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
+# Created on 2020-03-11T15:12:51+1100, using template:finish.tmpl and json:2.2.34.json
+
+# Required to avoid services starting too quickly.
+sleep 5
+
+c_ok "Stopped."
+

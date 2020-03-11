@@ -1,3 +1,5 @@
+![release](https://github.com/gearboxworks/docker-apache/workflows/release/badge.svg?event=release)
+
 ![Apache 2.4.x](https://img.shields.io/badge/Apache-2.4.x-green.svg)
 
 ![Gearbox](https://github.com/gearboxworks/gearbox.github.io/raw/master/Gearbox-100x.png)

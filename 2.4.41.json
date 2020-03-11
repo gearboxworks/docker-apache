@@ -1,0 +1,19 @@
+{
+	"state": "production",
+	"organization": "gearboxworks",
+	"name": "apache",
+	"maintainer": "Gearbox Team <team@gearbox.works>",
+	"version": "2.4.41",
+	"majorversion": "2.4",
+	"latest": "1",
+	"class": "webserver",
+	"network": "--network gearboxnet",
+	"ports": [ "443", "80" ],
+	"volumes": "",
+	"restart": "--restart no",
+	"args": "",
+	"env": { },
+	"ref": "httpd:2.4.41-alpine",
+	"refurl": "https://apache.org/",
+	"base": "gearboxworks/gearbox-base:alpine-3.11"
+}
