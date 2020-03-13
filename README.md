@@ -1,99 +1,98 @@
-![release](https://github.com/gearboxworks/docker-apache/workflows/release/badge.svg?event=release)
-
-![Apache 2.4.x](https://img.shields.io/badge/Apache-2.4.x-green.svg)
-
 ![Gearbox](https://github.com/gearboxworks/gearbox.github.io/raw/master/Gearbox-100x.png)
 
 
-# Apache2 Docker Container for Gearbox
-This is the repository for the [Apache2](http://apache.org/) Docker container implemented for [Gearbox](https://github.com/gearboxworks/gearbox).
-It currently provides versions 2.4.x
+# Another [Gearbox](https://github.com/gearboxworks/) Docker container service - apache
+This is the repository for the [apache](https://apache.org/) Docker container implemented for [Gearbox](https://github.com/gearboxworks/).
 
 
-## Supported tags and respective Dockerfiles
+## Repository Info
+GitHub commit: ![commit-date](https://img.shields.io/github/last-commit/gearboxworks/docker-apache?style=flat-square)
 
-`2.4.41`, `2.4`, `latest` _([2.4.41/Dockerfile](https://github.com/gearboxworks/apache-docker/blob/master/2.4.41/Dockerfile))_
-`2.4.35`, `2.4` _([2.4.35/Dockerfile](https://github.com/gearboxworks/apache-docker/blob/master/2.4.35/Dockerfile))_
+GitHub release(latest): ![last-release-date](https://img.shields.io/github/release-date/gearboxworks/docker-apache) ![last-release-date](https://img.shields.io/github/v/tag/gearboxworks/docker-apache?sort=semver) [![release-state](https://github.com/gearboxworks/docker-apache/workflows/release/badge.svg?event=release)](https://github.com/gearboxworks/docker-apache/actions?query=workflow%3Arelease)
+
+
+## Supported versions and respective Dockerfiles
+| Service | GitHub Version | Docker Version | Docker Size | Docker Tags | Dockerfile |
+| ------- | -------------- | -------------- | ----------- | ----------- | ---------- |
+| [apache](https://apache.org/) | ![apache](https://img.shields.io/badge/apache-2.2.34-green.svg) | ![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/gearboxworks/adminer/4.7.6) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/adminer/4.7.6) | `2.2.34`, `2.2` | _([2.2.34/DockerfileRuntime](https://github.com/gearboxworks/docker-apache/blob/master/2.2.34/DockerfileRuntime))_ |
+| [apache](https://apache.org/) | ![apache](https://img.shields.io/badge/apache-2.4.41-green.svg) | ![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/gearboxworks/adminer/4.7.6) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/adminer/4.7.6) | `2.4.41`, `2.4`, `latest` | _([2.4.41/DockerfileRuntime](https://github.com/gearboxworks/docker-apache/blob/master/2.4.41/DockerfileRuntime))_ |
+
 
 
 ## Using this container.
-If you want to use this container as part of Gearbox, then use the Docker Hub method.
-Or you can use the GitHub method to build and run the container.
+This container has been designed to work within the [Gearbox](https://github.com/gearboxworks/)
+framework.
+However, due to the flexability of Gearbox, it can be used outside of this framework.
+You can either use it directly from DockerHub or GitHub.
 
 
-## Using it from Docker Hub
-
-### Links
-(Docker Hub repo)[https://hub.docker.com/r/gearbox/apache/]
-
-(Docker Cloud repo)[https://cloud.docker.com/swarm/gearbox/repository/docker/gearbox/apache/]
-
-
-### Setup from Docker Hub
-A simple `docker pull gearbox/apache` will pull down the latest version.
-
-
-### Runtime from Docker Hub
-start - Spin up a Docker container with the correct runtime configs.
-
-`docker run -d --name apache-2.4.33 --restart unless-stopped --network gearboxnet -p 8080:80 -v $PROJECT_ROOT:/project gearbox/apache:2.4.33`
-
-stop - Stop a Docker container.
-
-`docker stop apache-2.4.33`
-
-run - Run a Docker container in the foreground, (all STDOUT and STDERR will go to console). The Container be removed on termination.
-
-`docker run --rm --name apache-2.4.33 --network gearboxnet -p 8080:80 -v $PROJECT_ROOT:/project gearbox/apache:2.4.33`
-
-shell - Run a shell, (/bin/bash), within a Docker container.
-
-`docker run --rm --name apache-2.4.33 -i -t --network gearboxnet -p 8081:80 -v $PROJECT_ROOT:/project gearbox/apache:2.4.33 /bin/bash`
-
-rm - Remove the Docker container.
-
-`docker container rm apache-2.4.33`
-
-
-## Using it from GitHub repo
+## Method 1: GitHub repo
 
 ### Setup from GitHub repo
 Simply clone this repository to your local machine
 
 `git clone https://github.com/gearboxworks/apache-docker.git`
 
-
 ### Building from GitHub repo
 `make build` - Build Docker images. Build all versions from the base directory or specific versions from each directory.
 
-
 `make list` - List already built Docker images. List all versions from the base directory or specific versions from each directory.
-
 
 `make clean` - Remove already built Docker images. Remove all versions from the base directory or specific versions from each directory.
 
-
 `make push` - Push already built Docker images to Docker Hub, (only for Gearbox admins). Push all versions from the base directory or specific versions from each directory.
-
 
 ### Runtime from GitHub repo
 When you `cd` into a version directory you can also perform a few more actions.
 
 `make start` - Spin up a Docker container with the correct runtime configs.
 
-
 `make stop` - Stop a Docker container.
-
 
 `make run` - Run a Docker container in the foreground, (all STDOUT and STDERR will go to console). The Container be removed on termination.
 
-
 `make shell` - Run a shell, (/bin/bash), within a Docker container.
-
 
 `make rm` - Remove the Docker container.
 
-
 `make test` - Will issue a `stop`, `rm`, `clean`, `build`, `create` and `start` on a Docker container.
 
+
+## Method 2: Docker Hub
+
+### Setup from Docker Hub
+A simple `docker pull gearbox/apache` will pull down the latest version.
+
+### Starting
+start - Spin up a Docker container with the correct runtime configs.
+
+`docker run -d --name apache-latest --restart unless-stopped --network gearboxnet gearbox/apache:latest`
+
+### Stopping
+stop - Stop a Docker container.
+
+`docker stop apache-latest`
+
+### Remove container
+rm - Remove the Docker container.
+
+`docker container rm apache-latest`
+
+### Run in foreground
+run - Run a Docker container in the foreground, (all STDOUT and STDERR will go to console). The Container be removed on termination.
+
+`docker run --rm --name apache-latest --network gearboxnet gearbox/apache:latest`
+
+### Run a shell
+shell - Run a shell, (/bin/bash), within a Docker container.
+
+`docker run --rm --name apache-latest -i -t --network gearboxnet gearbox/apache:latest /bin/bash`
+
+### SSH
+ssh - All [Gearbox](https://github.com/gearboxworks/) containers have a running SSH daemon. So you can connect remotely.
+
+```
+SSH_PORT="$(docker port apache-latest 22/tcp | sed 's/0.0.0.0://')"
+ssh -p ${SSH_PORT} -o StrictHostKeyChecking=no gearbox@localhost
+```
 

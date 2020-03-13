@@ -1,15 +1,19 @@
 #!/bin/bash -l
 # WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
-# Created on 2020-03-11T13:12:58+1100, using template:run.tmpl and json:2.4.35.json
+# Created on 2020-03-13T16:45:54+1100, using template:run.tmpl and json:gearbox.json
 
 c_ok "Starting."
 
-GBEP="$(which ${GEARBOX_ENTRYPOINT})"
+GBEP="$(which "${GEARBOX_ENTRYPOINT}")"
 if [ "${GBEP}" != "" ]
 then
-	${GBEP} ${GEARBOX_ARGS}
+	${GEARBOX_ENTRYPOINT_ARGS} ${GEARBOX_ARGS}
 else
 	# Add your service entry here, if no entrypoint defined in the ref container.
-	/usr/local/apache2/bin/httpd -DFOREGROUND
+	GBRUN="$(which "${GEARBOX_RUN}")"
+	if [ "${GBRUN}" != "" ]
+	then
+		${GBRUN} ${GEARBOX_ARGS}
+	fi
 fi
 

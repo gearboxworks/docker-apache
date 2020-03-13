@@ -1,7 +1,8 @@
 
+
 ################################################################################
 # WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
-# Created on 2020-03-11T14:02:40+1100, using template:DockerfileRuntime.tmpl and json:2.2.34.json
+# Created on 2020-03-13T16:45:54+1100, using template:DockerfileRuntime.tmpl and json:gearbox.json
 # Referenced Docker container for docker-apache based off gearboxworks/gearbox-base:alpine-3.4 with httpd:2.2.34-alpine overlayed.
 
 ARG VERSION=2.2.34
@@ -13,6 +14,7 @@ FROM gearboxworks/gearbox-base:alpine-3.4 as gearbox-base
 FROM httpd:2.2.34-alpine
 ARG VERSION
 ARG GEARBOX_ENTRYPOINT
+ARG GEARBOX_ENTRYPOINT_ARGS
 USER root
 
 # 3. Copy the build directory over from gearbox-base image.
@@ -23,42 +25,45 @@ MAINTAINER Gearbox Team <team@gearbox.works>
 ENV GEARBOX_CONTAINER_NAME "docker-apache"
 ENV GEARBOX_CONTAINER_VERSION ${VERSION}
 ENV GEARBOX_ENTRYPOINT ${GEARBOX_ENTRYPOINT}
-LABEL gearbox.json='{"state": "production","organization": "gearboxworks","name": "apache","maintainer": "Gearbox Team <team@gearbox.works>","version": "2.2.34","majorversion": "2.2","latest": "","class": "webserver","network": "--network gearboxnet","ports": [ "443", "80" ],"volumes": "","restart": "--restart no","args": "","env": { },"ref": "httpd:2.2.34-alpine","refurl": "https://apache.org/","base": "gearboxworks/gearbox-base:alpine-3.4"}'
-LABEL container.args=""
-LABEL container.base="gearboxworks/gearbox-base:alpine-3.4"
-LABEL container.class="webserver"
-LABEL container.env="map[]"
-LABEL container.latest=""
-LABEL container.maintainer="Gearbox Team <team@gearbox.works>"
-LABEL container.majorversion="2.2"
-LABEL container.name="apache"
-LABEL container.network="--network gearboxnet"
-LABEL container.organization="gearboxworks"
-LABEL container.ports="[443 80]"
-LABEL container.ref="httpd:2.2.34-alpine"
-LABEL container.refurl="https://apache.org/"
-LABEL container.restart="--restart no"
-LABEL container.state="production"
-LABEL container.version="2.2.34"
-LABEL container.volumes=""
-
-ENV GEARBOX_ARGS ""
-ENV GEARBOX_BASE "gearboxworks/gearbox-base:alpine-3.4"
-ENV GEARBOX_CLASS "webserver"
-# ENV GEARBOX_ENV "map[]"
-ENV GEARBOX_LATEST ""
-ENV GEARBOX_MAINTAINER "Gearbox Team <team@gearbox.works>"
-ENV GEARBOX_MAJORVERSION "2.2"
-ENV GEARBOX_NAME "apache"
-ENV GEARBOX_NETWORK "--network gearboxnet"
-ENV GEARBOX_ORGANIZATION "gearboxworks"
-ENV GEARBOX_PORTS "[443 80]"
-ENV GEARBOX_REF "httpd:2.2.34-alpine"
-ENV GEARBOX_REFURL "https://apache.org/"
-ENV GEARBOX_RESTART "--restart no"
-ENV GEARBOX_STATE "production"
+ENV GEARBOX_ENTRYPOINT_ARGS ${GEARBOX_ENTRYPOINT_ARGS}
+LABEL gearbox.json='{"state": "production","organization": "gearboxworks","name": "apache","maintainer": "Gearbox Team <team@gearbox.works>","class": "webserver","network": "--network gearboxnet","ports": ["443","80"],"volumes": "","restart": "--restart no","run": "/usr/local/apache2/bin/httpd","args": "-DFOREGROUND","env": {},"refurl": "https://apache.org/","versions": {"2.2.34": {"majorversion": "2.2","latest": false,"ref": "httpd:2.2.34-alpine","base": "gearboxworks/gearbox-base:alpine-3.4"},"2.4.41": {"majorversion": "2.4","latest": true,"ref": "httpd:2.4.41-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"}}}'
+LABEL gearbox.version='2.2.34'
 ENV GEARBOX_VERSION "2.2.34"
+LABEL container.args="-DFOREGROUND"
+ENV GEARBOX_ARGS "-DFOREGROUND"
+LABEL container.class="webserver"
+ENV GEARBOX_CLASS "webserver"
+# SKIP env
+LABEL container.maintainer="Gearbox Team <team@gearbox.works>"
+ENV GEARBOX_MAINTAINER "Gearbox Team <team@gearbox.works>"
+LABEL container.name="apache"
+ENV GEARBOX_NAME "apache"
+LABEL container.network="--network gearboxnet"
+ENV GEARBOX_NETWORK "--network gearboxnet"
+LABEL container.organization="gearboxworks"
+ENV GEARBOX_ORGANIZATION "gearboxworks"
+LABEL container.ports="[443 80]"
+ENV GEARBOX_PORTS "[443 80]"
+LABEL container.refurl="https://apache.org/"
+ENV GEARBOX_REFURL "https://apache.org/"
+LABEL container.restart="--restart no"
+ENV GEARBOX_RESTART "--restart no"
+LABEL container.run="/usr/local/apache2/bin/httpd"
+ENV GEARBOX_RUN "/usr/local/apache2/bin/httpd"
+LABEL container.state="production"
+ENV GEARBOX_STATE "production"
+# SKIP versions
+LABEL container.volumes=""
 ENV GEARBOX_VOLUMES ""
+
+LABEL container.base="gearboxworks/gearbox-base:alpine-3.4"
+ENV GEARBOX_BASE "gearboxworks/gearbox-base:alpine-3.4"
+LABEL container.latest="false"
+ENV GEARBOX_LATEST "false"
+LABEL container.majorversion="2.2"
+ENV GEARBOX_MAJORVERSION "2.2"
+LABEL container.ref="httpd:2.2.34-alpine"
+ENV GEARBOX_REF "httpd:2.2.34-alpine"
 
 
 
@@ -68,10 +73,10 @@ COPY ${VERSION}/build /etc/gearbox
 COPY ${VERSION}/gearbox.json /etc/gearbox/gearbox.json
 
 # 6. Run the base.sh script to set everything up.
-RUN /bin/bash /etc/gearbox/build/base.sh
+RUN /bin/sh /etc/gearbox/build/base.sh
 
 # 7. Run the apache.sh script to set everything up.
-RUN /bin/bash /etc/gearbox/build/apache.sh
+RUN /bin/sh /etc/gearbox/build/apache.sh
 
 # 8. Expose ports.
 EXPOSE 22 9970 443 80 
