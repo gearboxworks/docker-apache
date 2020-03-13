@@ -14,8 +14,8 @@ GitHub release(latest): ![last-release-date](https://img.shields.io/github/relea
 ## Supported versions and respective Dockerfiles
 | Service | GitHub Version | Docker Version | Docker Size | Docker Tags | Dockerfile |
 | ------- | -------------- | -------------- | ----------- | ----------- | ---------- |
-| [apache](https://apache.org/) | ![apache](https://img.shields.io/badge/apache-2.2.34-green.svg) | ![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/gearboxworks/adminer/4.7.6) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/adminer/4.7.6) | `2.2.34`, `2.2` | _([2.2.34/DockerfileRuntime](https://github.com/gearboxworks/docker-apache/blob/master/2.2.34/DockerfileRuntime))_ |
-| [apache](https://apache.org/) | ![apache](https://img.shields.io/badge/apache-2.4.41-green.svg) | ![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/gearboxworks/adminer/4.7.6) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/adminer/4.7.6) | `2.4.41`, `2.4`, `latest` | _([2.4.41/DockerfileRuntime](https://github.com/gearboxworks/docker-apache/blob/master/2.4.41/DockerfileRuntime))_ |
+| [apache](https://apache.org/) | ![apache](https://img.shields.io/badge/apache-2.2.34-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/apache/2.2.34) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/apache/2.2.34) | `2.2.34`, `2.2` | _([2.2.34/DockerfileRuntime](https://github.com/gearboxworks/docker-apache/blob/master/2.2/DockerfileRuntime))_ |
+| [apache](https://apache.org/) | ![apache](https://img.shields.io/badge/apache-2.4.41-green.svg) | ![Docker Version)](https://img.shields.io/docker/v/gearboxworks/apache/2.4.41) | ![Docker Size](https://img.shields.io/docker/image-size/gearboxworks/apache/2.4.41) | `2.4.41`, `2.4`, `latest` | _([2.4.41/DockerfileRuntime](https://github.com/gearboxworks/docker-apache/blob/master/2.4/DockerfileRuntime))_ |
 
 
 
