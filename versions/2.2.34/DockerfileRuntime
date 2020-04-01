@@ -1,0 +1,84 @@
+
+################################################################################
+# WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
+# Created on 2020-04-01T11:40:07+1100, using template:DockerfileRuntime.tmpl and json:gearbox.json
+# Referenced Docker container for docker-apache based off gearboxworks/gearbox-base:alpine-3.4 with httpd:2.2.34-alpine overlayed.
+
+ARG VERSION=2.2.34
+
+# 1. First reference the gearbox-base image.
+FROM gearboxworks/gearbox-base:alpine-3.4 as gearbox-base
+
+# 2. Next reference the third party image.
+FROM httpd:2.2.34-alpine
+ARG VERSION
+ARG GEARBOX_ENTRYPOINT
+ARG GEARBOX_ENTRYPOINT_ARGS
+USER root
+
+# 3. Copy the build directory over from gearbox-base image.
+COPY --from=gearbox-base /etc/gearbox /etc/gearbox
+
+# 4. Set up env variables.
+MAINTAINER Gearbox Team <team@gearbox.works>
+ENV GEARBOX_CONTAINER_NAME "docker-apache"
+ENV GEARBOX_CONTAINER_VERSION ${VERSION}
+ENV GEARBOX_ENTRYPOINT ${GEARBOX_ENTRYPOINT}
+ENV GEARBOX_ENTRYPOINT_ARGS ${GEARBOX_ENTRYPOINT_ARGS}
+LABEL gearbox.json='{"schema": "gear-1","meta": {"state": "production","organization": "gearboxworks","name": "apache","label": "Apache","maintainer": "Gearbox Team <team@gearbox.works>","class": "webserver","refurl": "https://apache.org/"},"build": {"ports": {"https": "443","http": "80"},"run": "/usr/local/apache2/bin/httpd","args": "-DFOREGROUND","env": {},"network": "--network gearboxnet","volumes": "","restart": "--restart no"},"run": {},"project": {},"extensions": {},"versions": {"2.2.34": {"majorversion": "2.2","latest": false,"ref": "httpd:2.2.34-alpine","base": "gearboxworks/gearbox-base:alpine-3.4"},"2.4.41": {"majorversion": "2.4","latest": true,"ref": "httpd:2.4.41-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"": {}}}'
+LABEL gearbox.version='2.2.34'
+ENV GEARBOX_VERSION "2.2.34"
+LABEL container.class="webserver"
+ENV GEARBOX_CLASS "webserver"
+LABEL container.label="Apache"
+ENV GEARBOX_LABEL "Apache"
+LABEL container.maintainer="Gearbox Team <team@gearbox.works>"
+ENV GEARBOX_MAINTAINER "Gearbox Team <team@gearbox.works>"
+LABEL container.name="apache"
+ENV GEARBOX_NAME "apache"
+LABEL container.organization="gearboxworks"
+ENV GEARBOX_ORGANIZATION "gearboxworks"
+LABEL container.refurl="https://apache.org/"
+ENV GEARBOX_REFURL "https://apache.org/"
+LABEL container.state="production"
+ENV GEARBOX_STATE "production"
+LABEL container.args="-DFOREGROUND"
+ENV GEARBOX_ARGS "-DFOREGROUND"
+# SKIP env
+LABEL container.network="--network gearboxnet"
+ENV GEARBOX_NETWORK "--network gearboxnet"
+LABEL container.ports="map[http:80 https:443]"
+ENV GEARBOX_PORTS "map[http:80 https:443]"
+LABEL container.restart="--restart no"
+ENV GEARBOX_RESTART "--restart no"
+LABEL container.run="/usr/local/apache2/bin/httpd"
+ENV GEARBOX_RUN "/usr/local/apache2/bin/httpd"
+LABEL container.volumes=""
+ENV GEARBOX_VOLUMES ""
+LABEL container.base="gearboxworks/gearbox-base:alpine-3.4"
+ENV GEARBOX_BASE "gearboxworks/gearbox-base:alpine-3.4"
+LABEL container.latest="false"
+ENV GEARBOX_LATEST "false"
+LABEL container.majorversion="2.2"
+ENV GEARBOX_MAJORVERSION "2.2"
+LABEL container.ref="httpd:2.2.34-alpine"
+ENV GEARBOX_REF "httpd:2.2.34-alpine"
+
+# 5. Now copy the local files specific to this container.
+COPY build /etc/gearbox
+COPY versions/${VERSION}/build /etc/gearbox
+
+# 6. Run the base.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/base.sh
+
+# 7. Run the apache.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/apache.sh
+
+# 8. Expose ports.
+EXPOSE 22 9970 80 443 
+WORKDIR /home/gearbox/projects
+
+CMD ["/init"]
+
+# END
+################################################################################
