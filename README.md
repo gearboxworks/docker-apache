@@ -1,4 +1,4 @@
-![Gearbox](https://raw.githubusercontent.com/gearboxworks/gearboxworks.github.io/master/assets/images/gearbox-logo.png)
+![Gearbox](https://gearboxworks.github.io/assets/images/gearbox-logo.png)
 
 
 # apache Docker container service for [Gearbox](https://github.com/gearboxworks/)
@@ -66,9 +66,9 @@ Create, and start the apache Gearbox container. Run a shell.
 
 `./bin/gb-launch -gb-name apache -gb-shell`
 
-Create, and start the apache Gearbox container with version 2.2.34 and run a shell.
+Create, and start the apache Gearbox container with version 2.4.41 and run a shell.
 
-`./bin/gb-launch -gb-name apache -gb-version 2.2.34 -gb-shell`
+`./bin/gb-launch -gb-name apache -gb-version 2.4.41 -gb-shell`
 
 If apache is symlinked to `gb-launch`, then you can drop the `-gb-name` flag.
 
@@ -78,18 +78,18 @@ Running apache Gearbox container default command. If a container has a default i
 
 `./bin/apache -flag1 -flag2 variable`
 
-`./bin/gb-launch -gb-name apache -gb-version 2.2.34 -flag1 -flag2 variable`
+`./bin/gb-launch -gb-name apache -gb-version 2.4.41 -flag1 -flag2 variable`
 
 
 Running alternate commands within the apache Gearbox container.
 
 `./bin/apache -gb-shell -- ls -l`
 
-`./bin/gb-launch -gb-name apache -gb-version 2.2.34 -gb-shell -- ls -l`
+`./bin/gb-launch -gb-name apache -gb-version 2.4.41 -gb-shell -- ls -l`
 
 `./bin/apache -gb-shell -- ps -eaf`
 
-`./bin/gb-launch -gb-name apache -gb-version 2.2.34 -gb-shell -- ps -eaf`
+`./bin/gb-launch -gb-name apache -gb-version 2.4.41 -gb-shell -- ps -eaf`
 
 
 ssh - All [Gearbox](https://github.com/gearboxworks/) containers have a running SSH daemon. So you can connect remotely.
