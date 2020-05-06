@@ -25,6 +25,23 @@
 		"restart": "--restart no"
 	},
 	"run": {
+		"commands": {
+			"default": "/usr/local/apache2/bin/apachectl",
+			"ab": "/usr/local/apache2/bin/ab",
+			"apachectl": "/usr/local/apache2/bin/apachectl",
+			"apxs": "/usr/local/apache2/bin/apxs",
+			"checkgid": "/usr/local/apache2/bin/checkgid",
+			"dbmmanage": "/usr/local/apache2/bin/dbmmanage",
+			"envvars": "/usr/local/apache2/bin/envvars",
+			"envvars-std": "/usr/local/apache2/bin/envvars-std",
+			"htcacheclean": "/usr/local/apache2/bin/htcacheclean",
+			"htdbm": "/usr/local/apache2/bin/htdbm",
+			"htdigest": "/usr/local/apache2/bin/htdigest",
+			"htpasswd": "/usr/local/apache2/bin/htpasswd",
+			"httxt2dbm": "/usr/local/apache2/bin/httxt2dbm",
+			"logresolve": "/usr/local/apache2/bin/logresolve",
+			"rotatelogs": "/usr/local/apache2/bin/rotatelogs"
+		}
 	},
 	"project": {
 	},

@@ -1,7 +1,7 @@
 
 ################################################################################
 # WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
-# Created on 2020-05-06T18:34:51+1000, using template:DockerfileRuntime.tmpl and json:gearbox.json
+# Created on 2020-05-06T18:41:50+1000, using template:DockerfileRuntime.tmpl and json:gearbox.json
 # Referenced Docker container for docker-apache based off gearboxworks/gearbox-base:alpine-3.4 with httpd:2.2.34-alpine overlayed.
 
 ARG VERSION=2.2.34
@@ -25,7 +25,7 @@ ENV GEARBOX_CONTAINER_NAME "docker-apache"
 ENV GEARBOX_CONTAINER_VERSION ${VERSION}
 ENV GEARBOX_ENTRYPOINT ${GEARBOX_ENTRYPOINT}
 ENV GEARBOX_ENTRYPOINT_ARGS ${GEARBOX_ENTRYPOINT_ARGS}
-LABEL gearbox.json='{"schema": "gear-1","meta": {"state": "production","organization": "gearboxworks","name": "apache","label": "Apache","maintainer": "Gearbox Team <team@gearbox.works>","class": "webserver","refurl": "https://apache.org/"},"build": {"ports": {"https": "443","http": "80"},"run": "/usr/local/apache2/bin/httpd","args": "-DFOREGROUND","env": {},"network": "--network gearboxnet","volumes": "","restart": "--restart no"},"run": {},"project": {},"extensions": {},"versions": {"2.2.34": {"majorversion": "2.2","latest": false,"ref": "httpd:2.2.34-alpine","base": "gearboxworks/gearbox-base:alpine-3.4"},"2.4.41": {"majorversion": "2.4","latest": true,"ref": "httpd:2.4.41-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"": {}}}'
+LABEL gearbox.json='{"schema": "gear-1","meta": {"state": "production","organization": "gearboxworks","name": "apache","label": "Apache","maintainer": "Gearbox Team <team@gearbox.works>","class": "webserver","refurl": "https://apache.org/"},"build": {"ports": {"https": "443","http": "80"},"run": "/usr/local/apache2/bin/httpd","args": "-DFOREGROUND","env": {},"network": "--network gearboxnet","volumes": "","restart": "--restart no"},"run": {"commands": {"default": "/usr/local/apache2/bin/apachectl","ab": "/usr/local/apache2/bin/ab","apachectl": "/usr/local/apache2/bin/apachectl","apxs": "/usr/local/apache2/bin/apxs","checkgid": "/usr/local/apache2/bin/checkgid","dbmmanage": "/usr/local/apache2/bin/dbmmanage","envvars": "/usr/local/apache2/bin/envvars","envvars-std": "/usr/local/apache2/bin/envvars-std","htcacheclean": "/usr/local/apache2/bin/htcacheclean","htdbm": "/usr/local/apache2/bin/htdbm","htdigest": "/usr/local/apache2/bin/htdigest","htpasswd": "/usr/local/apache2/bin/htpasswd","httxt2dbm": "/usr/local/apache2/bin/httxt2dbm","logresolve": "/usr/local/apache2/bin/logresolve","rotatelogs": "/usr/local/apache2/bin/rotatelogs"}},"project": {},"extensions": {},"versions": {"2.2.34": {"majorversion": "2.2","latest": false,"ref": "httpd:2.2.34-alpine","base": "gearboxworks/gearbox-base:alpine-3.4"},"2.4.41": {"majorversion": "2.4","latest": true,"ref": "httpd:2.4.41-alpine","base": "gearboxworks/gearbox-base:alpine-3.11"},"": {}}}'
 LABEL gearbox.version='2.2.34'
 ENV GEARBOX_VERSION "2.2.34"
 LABEL container.class="webserver"

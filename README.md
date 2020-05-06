@@ -91,6 +91,21 @@ Running apache Gearbox container default command. If a container has a default i
 `./launch apache:2.2.34 -flag1 -flag2 variable`
 
 Gearbox containers may have multiple executables that can be run. The apache Gearbox container has the following available commands:
+- `ab` - will execute `/usr/local/apache2/bin/ab` within the container.
+- `apachectl` - will execute `/usr/local/apache2/bin/apachectl` within the container.
+- `apxs` - will execute `/usr/local/apache2/bin/apxs` within the container.
+- `checkgid` - will execute `/usr/local/apache2/bin/checkgid` within the container.
+- `dbmmanage` - will execute `/usr/local/apache2/bin/dbmmanage` within the container.
+- The default command will execute `/usr/local/apache2/bin/apachectl` within the container.
+- `envvars` - will execute `/usr/local/apache2/bin/envvars` within the container.
+- `envvars-std` - will execute `/usr/local/apache2/bin/envvars-std` within the container.
+- `htcacheclean` - will execute `/usr/local/apache2/bin/htcacheclean` within the container.
+- `htdbm` - will execute `/usr/local/apache2/bin/htdbm` within the container.
+- `htdigest` - will execute `/usr/local/apache2/bin/htdigest` within the container.
+- `htpasswd` - will execute `/usr/local/apache2/bin/htpasswd` within the container.
+- `httxt2dbm` - will execute `/usr/local/apache2/bin/httxt2dbm` within the container.
+- `logresolve` - will execute `/usr/local/apache2/bin/logresolve` within the container.
+- `rotatelogs` - will execute `/usr/local/apache2/bin/rotatelogs` within the container.
 
 
 ### Remote connection
