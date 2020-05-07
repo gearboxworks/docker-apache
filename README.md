@@ -69,13 +69,13 @@ Create, and start the apache Gearbox container. Run a shell.
 
 `./launch shell apache`
 
-Create, and start the apache Gearbox container with version 2.2.34 and run a shell.
+Create, and start the apache Gearbox container with version 2.4.41 and run a shell.
 
-`./launch shell apache:2.2.34`
+`./launch shell apache:2.4.41`
 
-`./launch shell apache:2.2.34 ls -l`
+`./launch shell apache:2.4.41 ls -l`
 
-`./launch shell apache:2.2.34 ps -eaf`
+`./launch shell apache:2.4.41 ps -eaf`
 
 
 ### Available commands
@@ -88,7 +88,7 @@ Running apache Gearbox container default command. If a container has a default i
 
 `./apache -flag1 -flag2 variable`
 
-`./launch apache:2.2.34 -flag1 -flag2 variable`
+`./launch apache:2.4.41 -flag1 -flag2 variable`
 
 Gearbox containers may have multiple executables that can be run. The apache Gearbox container has the following available commands:
 - `ab` - will execute `/usr/local/apache2/bin/ab` within the container.
